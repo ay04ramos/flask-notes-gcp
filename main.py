@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from google.cloud import firestore
 from datetime import datetime
 from google.api_core.datetime_helpers import DatetimeWithNanoseconds
-
+# new linw added
 app = Flask(__name__)
 db = firestore.Client()
 notes_ref = db.collection("notes")
