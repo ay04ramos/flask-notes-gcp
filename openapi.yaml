@@ -1,0 +1,48 @@
+swagger: "2.0"
+info:
+  title: Notes API
+  description: API Gateway config for Cloud Run Flask Notes service
+  version: "1.0.0"
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /notes:
+    get:
+      operationId: getNotes
+      responses:
+        "200":
+          description: OK
+      x-google-backend:
+        address: https://flask-notes-553433555805.us-central1.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      operationId: createNote
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+      responses:
+        "201":
+          description: Created
+      x-google-backend:
+        address: https://flask-notes-553433555805.us-central1.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+
+  /health:
+    get:
+      operationId: health
+      responses:
+        "200":
+          description: OK
+      x-google-backend:
+        address: https://flask-notes-553433555805.us-central1.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
