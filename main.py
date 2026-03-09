@@ -3,6 +3,7 @@ from google.cloud import firestore
 from datetime import datetime
 from google.api_core.datetime_helpers import DatetimeWithNanoseconds
 # new linw added
+# another CI/CD test
 app = Flask(__name__)
 db = firestore.Client()
 notes_ref = db.collection("notes")
